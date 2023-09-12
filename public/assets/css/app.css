@@ -1,0 +1,27 @@
+table thead th {
+    background-color: #ced4da !important;
+    text-align: center;
+}
+table td {
+    text-align: center;
+}
+
+table .ct:focus, table .dt:focus{
+    outline: none !important;
+}
+
+table .checkbox-round{
+    display: flex;
+    justify-content: center;
+}
+table .check{
+    width: 1rem;
+    height: 1rem;
+}
+table .ct{
+    text-align: center;
+}
+table .dt{
+    text-align: center;
+    color: #41c36a;
+}
