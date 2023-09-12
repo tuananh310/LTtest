@@ -5,12 +5,17 @@
             <a href="#" class="text-dark text-decoration-none">TRANG CHỦ</a>
         </div>
     </div>
-    <div class="px-2 py-2">
-        <form method="GET" action="{{ route('test.index') }}" class="d-flex align-items-center">
+    <div class="px-2 py-2 d-flex justify-content-between">
+        {{-- <form method="GET" action="{{ route('test.index') }}" class="d-flex align-items-center"> --}}
+        <div>
             <span class="">Date</span>
-            <input type="date" name="date" class="mx-2">
+            <input type="date" value="2023-09-12" name="date" class="mx-2">
             <button type="submit" class="btn btn-primary">Lọc</button>
-        </form>
+        </div>
+        <div>
+            <a href="{{route('test.detail', ['date' => '2023-09-12'])}}" class="btn btn-primary">Chi tiết</a>
+        </div>
+        {{-- </form> --}}
     </div>
     <div class="mx-1 my-1">
         <table class="table table-bordered">
@@ -32,7 +37,7 @@
             <tbody>
                 @foreach ($records as $record)
                     <tr>
-                        <td class="checkbox-round"><input type="checkbox" data-id="{{$record->id}}" class="check"></td>
+                        <td class="checkbox-round"><input type="checkbox" data-id="{{ $record->id }}" class="check"></td>
                         <td>{{ $record->code }}</td>
                         <td>{{ $record->col }}</td>
                         <td class="ct1{{ $record->id }}">{{ $record->ct1 }}</td>
@@ -84,7 +89,8 @@
                     <td><input type="text" value="0" data-id="" data-name="readjust"
                             class="dt readjust3 border-0"></td>
                     <td><input type="text" value="0" data-id="" data-name="other"
-                            class="dt other3 border-0"></td>
+                            class="dt other3 border-0">
+                    </td>
                 </tr>
                 <tr>
                     <td>10:30-11:30</td>

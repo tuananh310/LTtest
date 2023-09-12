@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [TestController::class, 'index'])->name('test.index');
+Route::get('/detail', [TestController::class, 'detail'])->name('test.detail');
 Route::get('/getStaff', [TestController::class, 'getStaff'])->name('test.getStaff');
 Route::post('/update', [TestController::class, 'update'])->name('test.update');
 Route::post('/updateTime', [TestController::class, 'updateTime'])->name('test.updateTime');

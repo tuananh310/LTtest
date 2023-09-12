@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Staff;
 use App\Models\Time;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -51,9 +52,18 @@ class TestController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function detail(Request $request)
     {
-        //
+        $datas = DB::table('staff')->whereDate('date', $request->date)->get();
+        $records = array();
+        foreach($datas as $key => $data){
+            $records[$key]['staff'] = $data;
+            $records[$key]['time'] = Time::where('staff_id', $data->id)->get();
+            $records[$key]['total_th1'] = $records[$key]['time']->sum('th1');
+            $records[$key]['total_readjust'] = $records[$key]['time']->sum('readjust');
+            $records[$key]['total_other'] = $records[$key]['time']->sum('other');
+        }
+        return view('test.detail', compact('records'));
     }
 
     /**

@@ -2,7 +2,7 @@ table thead th {
     background-color: #ced4da !important;
     text-align: center;
 }
-table td {
+table td, table th {
     text-align: center;
 }
 
